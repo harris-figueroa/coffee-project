@@ -1,9 +1,50 @@
-table {
-    border-collapse: collapse;
-    margin: 15px 0;
+/*table {*/
+/*    border-collapse: collapse;*/
+/*    margin: 15px 0;*/
+/*}*/
+
+/*td, th {*/
+/*    border: 1px solid black;*/
+/*    padding: 5px 10px;*/
+/*}*/
+
+.header {
+    height: 100px;
+    line-height: 90px;
+    vertical-align: center;
 }
 
-td, th {
-    border: 1px solid black;
-    padding: 5px 10px;
+.divider {
+    width: 90%;
+    margin-left: 5%;
+    color: lightgrey;
+}
+
+.coffee-selector {
+    width: 40%;
+}
+
+#roast-selection {
+    width: 100%;
+}
+
+#submit {
+    width: 100%;
+    margin-top: 15px;
+    background-color: lightskyblue;
+    border-radius: 5px;
+}
+
+.coffee-input {
+    width: 100%;
+}
+
+.coffee-name {
+    margin: 0;
+}
+
+.form-header {
+    height: 75px;
+    line-height: 75px;
+    vertical-align: center;
 }
