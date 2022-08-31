@@ -1,11 +1,11 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+    var html = '<div class="coffee">';
+    html += '<p class="d-none"">' + coffee.id + '</p>';
+    html += '<h1>' + coffee.name + '</h1>';
+    html += '<p class="text-secondary">' + coffee.roast + '</p>';
+    html += '</div>';
 
     return html;
 }
@@ -27,7 +27,7 @@ function updateCoffees(e) {
             filteredCoffees.push(coffee);
         }
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+    coffeeList.innerHTML = renderCoffees(filteredCoffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -48,10 +48,45 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
+// Storing selectors in variables.
+var roastSelection = document.getElementById("roast-selection");
+var coffeeList = document.querySelector('#coffees');
+var coffeeSearch = document.getElementById("coffee-search");
+var coffeeSubmit = document.getElementById("coffee-submit");
+var addCoffeeSubmit = document.querySelector('#submit');
+var addRoastSelection = document.querySelector('#add-roast-selection');
 
-tbody.innerHTML = renderCoffees(coffees);
+// Displays coffees in ascending order.
+coffeeList.innerHTML = renderCoffees(coffees.reverse());
 
-submitButton.addEventListener('click', updateCoffees);
+// Updates coffee list once user adds coffee.
+addCoffeeSubmit.addEventListener("click", updateCoffees);
+
+// Displays coffee that was searched for.
+coffeeSubmit.addEventListener("click", function(e) {
+    let coffeeResults = [];
+    for (let i = 0; i < coffees.length; i++) {
+        if (coffees[i].name.toLowerCase() === coffeeSearch.value) {
+            coffeeResults.push(coffees[i]);
+        } else {
+            console.log("name doesn't match");
+        }
+    }
+    // Replaces coffee list with user coffee search only.
+    coffeeList.innerHTML = renderCoffees(coffeeResults);
+});
+
+// TODO: NEEDS TO BE FINISHED
+// As user types in search box, coffee list will display coffees.
+coffeeSearch.addEventListener("keyup", function(e) {
+    console.log(coffeeSearch.value);
+    for (let i = 0; i < coffees.length; i++) {
+        if (coffees[i].name.toLowerCase().includes(coffeeSearch.value)) {
+            coffeeList.innerHTML = renderCoffee(coffees[i]);
+        }
+    }
+});
+
+
+
+

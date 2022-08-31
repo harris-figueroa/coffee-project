@@ -14,45 +14,55 @@
     <hr class="mt-0 divider">
 
 <!-------------------------------------Coffee Selector Form----------------------------------------->
+    <div class="d-flex flex-column float-end me-5">
 
-    <form class="coffee-selector">
-        <label for="roast-selection"></label>
-        <div class="roast-selector">Roast</div>
-        <select id="roast-selection">
-            <option>light</option>
-            <option>medium</option>
-            <option>dark</option>
-        </select>
-        <label for="submit"></label>
-        <div class="coffee-name">Coffee Name</div>
-        <input type="text" class="coffee-input">
-        <input id="submit2" type="submit"/>
-        <h1 class="text-center fs-1 form-header">Add A Coffee</h1>
-        <label for="roast-selection"></label>
-        <div class="roast-selector">Roast</div>
-        <select id="roast-selection2">
-            <option>light</option>
-            <option>medium</option>
-            <option>dark</option>
-        </select>
-        <label for="submit"></label>
-        <div class="coffee-name">Coffee Name</div>
-        <input type="text" class="coffee-input">
-        <input id="submit" type="submit"/>
-    </form>
+        <form class="coffee-selector mb-5 w-100">
+            <h1 class="text-center fs-2 form-header">Find A Coffee</h1>
+            <label for="roast-selection"></label>
+            <div class="roast-selector">Roast</div>
+            <select id="roast-selection" class="form-select">
+                <option id="all-roast">all</option>
+                <option id="light-roast">light</option>
+                <option id="medium-roast">medium</option>
+                <option id="dark-roast">dark</option>
+            </select>
+            <label for="submit"></label>
+            <div class="coffee-name">Coffee Name</div>
+            <input id="coffee-search" type="text" class="coffee-input form-control">
+            <input id="coffee-submit" type="button" value="Submit"/>
+            <hr class="divider" />
+        </form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>ROAST</th>
-            </tr>
-        </thead>
-        <tbody id="coffees"></tbody>
-    </table>
+        <!-------- ADD COFFEE -------->
 
-    <script src="main.js"></script>
+        <form class="add-coffee">
+            <h1 class="text-center fs-2 form-header">Add A Coffee</h1>
+            <label for="add-roast-selection"></label>
+            <div class="roast-selector">Roast</div>
+            <select id="add-roast-selection" class="form-select">
+                <option>light</option>
+                <option>medium</option>
+                <option>dark</option>
+            </select>
+            <label for="submit"></label>
+            <div class="coffee-name">Coffee Name</div>
+            <input type="text" class="coffee-input form-control">
+            <input id="submit" type="submit"/>
+        </form>
+
+    </div>
+
+<!-------------------------------------------Coffee Display--------------------------------------------------->
+
+    <div id="coffees" class="d-flex flex-start flex-column ms-5">
+        <h1></h1>
+        <p></p>
+    </div>
+
+<!-------------------------------------------JS SCRIPTS--------------------------------------------------->
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 </body>
 </html>
