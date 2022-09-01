@@ -76,15 +76,15 @@ coffeeSubmit.addEventListener("click", function(e) {
     coffeeList.innerHTML = renderCoffees(coffeeResults);
 });
 
-// TODO: NEEDS TO BE FINISHED
 // As user types in search box, coffee list will display coffees.
 coffeeSearch.addEventListener("keyup", function(e) {
-    console.log(coffeeSearch.value);
+    let searchingCoffees = [];
     for (let i = 0; i < coffees.length; i++) {
         if (coffees[i].name.toLowerCase().includes(coffeeSearch.value)) {
-            coffeeList.innerHTML = renderCoffee(coffees[i]);
+            searchingCoffees.push(coffees[i]);
         }
     }
+    coffeeList.innerHTML = renderCoffees(searchingCoffees);
 });
 
 
