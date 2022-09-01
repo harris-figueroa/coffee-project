@@ -20,6 +20,7 @@ function renderCoffees(coffees) {
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
+    var x = document.getElementById("roast-selection").value;
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
@@ -87,6 +88,8 @@ coffeeSearch.addEventListener("keyup", function(e) {
     coffeeList.innerHTML = renderCoffees(searchingCoffees);
 });
 
-
-
+// if(roastSelection === document.getElementById("light-roast")) {
+//     updateCoffees();
+// }
+// roastSelection.addEventListener("click", updateCoffees);
 

@@ -16,15 +16,15 @@
 <!-------------------------------------Coffee Selector Form----------------------------------------->
     <div class="d-flex flex-column float-end me-5">
 
-        <form class="coffee-selector mb-5 w-100">
+        <form name="coffee-selector" class="coffee-selector mb-5 w-100">
             <h1 class="text-center fs-2 form-header">Find A Coffee</h1>
             <label for="roast-selection"></label>
             <div class="roast-selector">Roast</div>
-            <select id="roast-selection" class="form-select">
-                <option id="all-roast">all</option>
-                <option id="light-roast">light</option>
-                <option id="medium-roast">medium</option>
-                <option id="dark-roast">dark</option>
+            <select id="roast-selection" onchange="updateCoffees()" class="form-select">
+                <option value="all">all</option>
+                <option value="light">light</option>
+                <option value="medium">medium</option>
+                <option value="dark">dark</option>
             </select>
             <label for="submit"></label>
             <div class="coffee-name">Coffee Name</div>
