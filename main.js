@@ -1,10 +1,10 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    var html = '<div class="coffee">';
+    var html = '<div class="coffee mb-5">';
     html += '<p class="d-none">' + coffee.id + '</p>';
-    html += '<h1 class="coffee-title">' + coffee.name + '</h1>';
-    html += '<p class="coffee-sub text-secondary">' + coffee.roast + '</p>';
+    html += '<h1 class="d-inline pe-2 coffee-title">' + coffee.name + '</h1>';
+    html += '<p class="d-inline coffee-sub text-muted fs-5">' + coffee.roast + '</p>';
     html += '</div>';
 
     return html;
