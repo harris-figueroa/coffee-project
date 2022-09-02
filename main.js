@@ -24,9 +24,14 @@ function updateCoffees(e) {
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
+        if(selectedRoast === 'all'){
+            filteredCoffees.push(coffee)
+        } else if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         }
+        // if (coffee.roast === selectedRoast) {
+        //     filteredCoffees.push(coffee);
+        // }
     });
     coffeeList.innerHTML = renderCoffees(filteredCoffees);
 }
@@ -67,7 +72,7 @@ addCoffeeSubmit.addEventListener("click", updateCoffees);
 coffeeSubmit.addEventListener("click", function(e) {
     let coffeeResults = [];
     for (let i = 0; i < coffees.length; i++) {
-        if (coffees[i].name.toLowerCase() === coffeeSearch.value) {
+        if (coffees[i].name.toLowerCase() === coffeeSearch.value || coffees[i].name.toUpperCase() === coffeeSearch.value) {
             coffeeResults.push(coffees[i]);
         } else {
             console.log("name doesn't match");
@@ -81,7 +86,7 @@ coffeeSubmit.addEventListener("click", function(e) {
 coffeeSearch.addEventListener("keyup", function(e) {
     let searchingCoffees = [];
     for (let i = 0; i < coffees.length; i++) {
-        if (coffees[i].name.toLowerCase().includes(coffeeSearch.value)) {
+        if (coffees[i].name.toLowerCase().includes(coffeeSearch.value) || coffees[i].name.toUpperCase().includes(coffeeSearch.value)) {
             searchingCoffees.push(coffees[i]);
         }
     }
