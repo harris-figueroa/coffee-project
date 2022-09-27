@@ -3,10 +3,9 @@
 function renderCoffee(coffee) {
     var html = '<div class="coffee mb-5">';
     html += '<p class="d-none">' + coffee.id + '</p>';
-    html += '<h1 class="d-inline pe-2 coffee-title">' + coffee.name + '</h1>';
+    html += '<h1 \n class="d-inline pe-2 coffee-title">' + coffee.name + '</h1>';
     html += '<p class="d-inline coffee-sub text-muted fs-5">' + coffee.roast + '</p>';
     html += '</div>';
-
     return html;
 }
 
@@ -29,11 +28,22 @@ function updateCoffees(e) {
         } else if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         }
-        // if (coffee.roast === selectedRoast) {
-        //     filteredCoffees.push(coffee);
-        // }
     });
     coffeeList.innerHTML = renderCoffees(filteredCoffees);
+}
+
+function addCoffees(e){
+    e.preventDefault();
+    var submittedcoffee = {};
+    var roast = document.getElementById("add-roast-selection").value;
+    var name = document.getElementById("add-coffee-name").value;
+    var freshid = (coffees.length + 1);
+
+    submittedcoffee.id = freshid;
+    submittedcoffee.name = name;
+    submittedcoffee.roast = roast;
+    coffees.push(submittedcoffee);
+    updateCoffees(e);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -65,8 +75,6 @@ var addRoastSelection = document.querySelector('#add-roast-selection');
 // Displays coffees in ascending order.
 coffeeList.innerHTML = renderCoffees(coffees.reverse());
 
-// Updates coffee list once user adds coffee.
-addCoffeeSubmit.addEventListener("click", updateCoffees);
 
 // Displays coffee that was searched for.
 coffeeSubmit.addEventListener("click", function(e) {
@@ -92,3 +100,7 @@ coffeeSearch.addEventListener("keyup", function(e) {
     }
     coffeeList.innerHTML = renderCoffees(searchingCoffees);
 });
+
+
+// Updates coffee list once user adds coffee.
+addCoffeeSubmit.addEventListener("click", addCoffees);
