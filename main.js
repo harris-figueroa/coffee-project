@@ -34,15 +34,15 @@ function updateCoffees(e) {
 
 function addCoffees(e){
     e.preventDefault();
-    var submittedcoffee = {};
+    var submittedCoffee = {};
     var roast = document.getElementById("add-roast-selection").value;
     var name = document.getElementById("add-coffee-name").value;
-    var freshid = (coffees.length + 1);
+    var newId = (coffees.length + 1);
 
-    submittedcoffee.id = freshid;
-    submittedcoffee.name = name;
-    submittedcoffee.roast = roast;
-    coffees.push(submittedcoffee);
+    submittedCoffee.id = newId;
+    submittedCoffee.name = name;
+    submittedCoffee.roast = roast;
+    coffees.push(submittedCoffee);
     updateCoffees(e);
 }
 
@@ -71,6 +71,7 @@ var coffeeSearch = document.getElementById("coffee-search");
 var coffeeSubmit = document.getElementById("coffee-submit");
 var addCoffeeSubmit = document.querySelector('#submit');
 var addRoastSelection = document.querySelector('#add-roast-selection');
+
 
 // Displays coffees in ascending order.
 coffeeList.innerHTML = renderCoffees(coffees.reverse());
