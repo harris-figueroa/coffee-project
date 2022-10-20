@@ -31,8 +31,8 @@ td, th {
 #welcome-container {
     margin-top: 1em;
     margin-left: 1em;
-    height: 120px;
-    width: 20%;
+    height: 60px;
+    width: 70%;
 }
 
 #welcome-user {
@@ -44,7 +44,6 @@ td, th {
 }
 #coffee-brand {
     font-family: 'Press Start 2P', cursive;
-    margin-right: 1400px;
 }
 #coffee-gif {
     height: 50px;
